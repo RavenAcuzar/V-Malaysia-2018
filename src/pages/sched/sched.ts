@@ -42,6 +42,7 @@ export class SchedPage {
   }
 
   ionViewDidLoad() {
+    this.refreshScheduleData()
     this.updateCanViewSched();
 
     this.transitionSubscription = this.geofenceService.subscribeToTransition((g) => {
@@ -111,7 +112,7 @@ export class SchedPage {
 
   refreshScheduleData() {
     let body = new URLSearchParams();
-    body.set('language', window.localStorage['mylanguage']);
+   //body.set('language', window.localStorage['mylanguage']);
 
     console.log("Trying to retrieve schedule data from server...");
     this.http.get('https://cums.the-v.net/program.aspx', { params: body })
@@ -120,6 +121,7 @@ export class SchedPage {
           this.scheduleData = res.json();
           this.storage.set('schedule', this.scheduleData);
           this.onSuccessRetrieval();
+          this.canViewSched = true;
         } catch (e) {
           console.error("Cannot retrieve schedule data from server.");
           console.error(JSON.stringify(e));

@@ -36,7 +36,7 @@ export class NewsAndUpdatesPage {
   GoToNews(id: String){
     this.navCtrl.push(NewslandingPage, {
       id: id
-    });;
+    });
   }
   
   getNews() {

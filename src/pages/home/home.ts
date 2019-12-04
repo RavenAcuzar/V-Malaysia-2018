@@ -30,7 +30,7 @@ export class HomePage {
     private loadingController: LoadingController,
     private toastCtrl: ToastController,
     private http: Http) {
-
+      this.getNews();
 
   }
   ionViewDidEnter() {
@@ -43,7 +43,7 @@ export class HomePage {
     }
     else
       this.countDown();
-    this.getNews();
+    
   }
   checkDateValue() {
     if (this._dateNow.getMonth() === 3 && this._dateNow.getDate() === 24) {

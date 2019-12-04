@@ -56,6 +56,7 @@ export class MerchPage {
           try {
             console.log(result._body);
             this.myMerchandise = JSON.parse(result._body);
+            loadingPopup.dismiss();
           }
           catch (e) {
             let toast = this.toastCtrl.create({
